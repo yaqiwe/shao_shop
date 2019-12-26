@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: get_api
+  redis:
+    host: 120.79.41.196
+    port: 6379
+    password: Zcl739146825
+zuul:
+  routes:
+    commodity:
+#      path: /commodity/**
+#      serviceId: shop_commodity
+#      sensitiveHeaders:
+    shopCommodity: /commodity/**
+    shop_user: /user/**
+    shop_buy: /shopBuy/**
+#  ignored-patterns:
+#    - /shop_commodity/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://120.79.41.196:8761/eureka/
+server:
+  port: 8080
+#http://120.79.41.196:8761/eureka/
