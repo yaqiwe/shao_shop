@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 @Data
 public class ShopCartVo {
 
-    private long comId;
+    private String comId;
 
     private String comName;
 
@@ -23,8 +23,6 @@ public class ShopCartVo {
     private String comSrc;
 
     private BigDecimal comPrice;
-
-    private Integer comStock;
 
     private Integer number;
 

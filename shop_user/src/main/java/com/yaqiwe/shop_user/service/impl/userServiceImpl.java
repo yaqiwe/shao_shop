@@ -20,6 +20,7 @@ public class userServiceImpl implements userService {
     @Autowired
     userMapper userM;
 
+
     @Override
     public void registered(String userName, String passWord) {
         if(userName.length()<6 || userName.length()>18)
@@ -52,7 +53,6 @@ public class userServiceImpl implements userService {
                 return us;
             }
         }
-
         throw new shopException(exceptionEnum.USER_LOG_IN_ERROR);
 
     }

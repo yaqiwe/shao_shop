@@ -60,18 +60,21 @@ public class ShopCartController {
         //查询相应商品的信息
         List<Long> comId = catrDtos.stream().map(i -> i.getComId()).collect(Collectors.toList());
         List<commodity> comList = commodityF.getComByComId(comId);
+
         List<ShopCartVo> comVo=new ArrayList<>();
         for (commodity com : comList) {
             ShopCartVo vo=new ShopCartVo();
             BeanUtils.copyProperties(com,vo);
+            vo.setComId(com.getComId()+"");
             for (CatrDto Dto : catrDtos) {
-                if(Dto.getComId()==vo.getComId()){
+                if(vo.getComId().equals(Dto.getComId()+"")){
                     vo.setNumber(Dto.getComNumber());
                     break;
                 }
             }
             comVo.add(vo);
         }
+
         return ResoultUtil.success(comVo);
     }
 }

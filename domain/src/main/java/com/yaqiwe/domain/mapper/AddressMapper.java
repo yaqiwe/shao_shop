@@ -1,6 +1,7 @@
 package com.yaqiwe.domain.mapper;
 
 import com.yaqiwe.domain.entity.Address;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -22,4 +23,7 @@ public interface AddressMapper {
 
     @Select("SELECT * FROM address WHERE user_id=#{userId}")
     public List<Address> getAddress(long userId);
+
+    @Delete("DELETE FROM address WHERE add_id=#{addId} AND user_id=#{userId}")
+    public int deleteAddress(Long addId,Long userId);
 }

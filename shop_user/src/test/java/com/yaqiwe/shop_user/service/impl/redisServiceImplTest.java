@@ -1,8 +1,9 @@
 package com.yaqiwe.shop_user.service.impl;
 
+import com.yaqiwe.domain.dto.RedisUserDto;
 import com.yaqiwe.domain.entity.user;
+import com.yaqiwe.domain.service.redisService;
 import com.yaqiwe.shop_user.ShopUserApplicationTests;
-import com.yaqiwe.shop_user.vo.RedisUserDto;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

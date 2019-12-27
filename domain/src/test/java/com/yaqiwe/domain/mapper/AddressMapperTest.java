@@ -22,11 +22,13 @@ class AddressMapperTest extends DomainApplicationTests {
     @Autowired
     AddressMapper addressM;
 
+    long userId=405220819019636736L;
+
     @Test
     @Transactional
     void insertAddress() {
         Address address=new Address();
-        address.setUserId(405220819019636736L);
+        address.setUserId(userId);
         address.setAddId(UserIdUtil.getAddId());
         address.setUserAdderss("第一地狱");
         int i = addressM.insertAddress(address);
@@ -35,8 +37,15 @@ class AddressMapperTest extends DomainApplicationTests {
 
     @Test
     void testGetAddress(){
-        long userId=405220819019636736L;
         List<Address> address = addressM.getAddress(userId);
         Assert.assertTrue(address.size()>0);
+    }
+
+    @Test
+    @Transactional
+    void testDeleteAddress(){
+        Long addId=407510645379174400L;
+        int i = addressM.deleteAddress(addId, userId);
+        Assert.assertTrue(i==1);
     }
 }

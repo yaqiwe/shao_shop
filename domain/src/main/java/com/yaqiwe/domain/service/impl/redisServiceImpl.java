@@ -3,9 +3,11 @@ package com.yaqiwe.domain.service.impl;
 
 import com.yaqiwe.domain.dto.RedisUserDto;
 import com.yaqiwe.domain.entity.user;
+import com.yaqiwe.domain.handler.LogInHandler;
 import com.yaqiwe.domain.service.redisService;
 import com.yaqiwe.domain.util.GenerationToken;
 import org.springframework.beans.BeanUtils;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,7 @@ import java.util.concurrent.TimeUnit;
  * redis操作实现类
  */
 @Service
+@Primary
 public class redisServiceImpl implements redisService {
 
     @Resource(name = "redisdDto")
@@ -45,5 +48,10 @@ public class redisServiceImpl implements redisService {
         if (o instanceof RedisUserDto)
             return (RedisUserDto) o;
         return null;
+    }
+
+    public RedisUserDto getThisUserInfo(){
+        /*从拦截器获取当前连接的用户的Id*/
+        return getUserInfo(LogInHandler.token);
     }
 }

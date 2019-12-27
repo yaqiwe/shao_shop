@@ -10,6 +10,7 @@ import lombok.Data;
  */
 @Data
 public class shopException extends RuntimeException {
+
     private Integer code;
 
     public shopException(exceptionEnum enums){

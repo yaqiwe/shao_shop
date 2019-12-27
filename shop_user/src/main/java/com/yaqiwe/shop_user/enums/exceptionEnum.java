@@ -17,8 +17,12 @@ public enum exceptionEnum {
     USER_REPEAT(1003,"用户名已存在"),
     USER_REGISTERED(1004,"注册失败请稍后重试"),
     USER_LOG_IN_ERROR(1005,"用户名或密码错误"),
+    USER_NO_LOG_IN(1006,"用户未登录"),
 
     COMMODITY_NULL(2001,"查找的商品不存在"),
+
+    ADDRESS_ADD_ERROR(3001,"添加地址失败"),
+    ADDRESS_DELETE_ERROR(3002,"删除地址失败"),
     ;
 
     private Integer code;

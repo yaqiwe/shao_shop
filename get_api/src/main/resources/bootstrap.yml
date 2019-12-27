@@ -12,14 +12,14 @@ zuul:
 #      serviceId: shop_commodity
 #      sensitiveHeaders:
     shopCommodity: /commodity/**
-    shop_user: /user/**
+#    user: /user/**
     shop_buy: /shopBuy/**
 #  ignored-patterns:
 #    - /shop_commodity/**
 eureka:
   client:
     service-url:
-      defaultZone: http://120.79.41.196:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 server:
   port: 8080
 #http://120.79.41.196:8761/eureka/

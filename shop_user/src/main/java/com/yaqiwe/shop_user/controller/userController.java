@@ -1,6 +1,7 @@
 package com.yaqiwe.shop_user.controller;
 
 import com.yaqiwe.domain.entity.user;
+import com.yaqiwe.domain.service.redisService;
 import com.yaqiwe.shop_user.service.userService;
 import com.yaqiwe.shop_user.util.Resoult;
 import com.yaqiwe.shop_user.util.ResoultUtil;
@@ -20,6 +21,7 @@ public class userController {
 
     @Autowired
     private userService userS;
+
     @Autowired
     private redisService redisS;
 
