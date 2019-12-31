@@ -3,9 +3,11 @@ package com.ysqiwe.commodity.service.impl;
 import com.yaqiwe.domain.entity.commodity;
 import com.yaqiwe.domain.mapper.CommodityMapper;
 import com.ysqiwe.commodity.service.ClientServer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,6 +16,7 @@ import java.util.List;
  * @Version 1.0
  */
 @Service
+@Slf4j
 public class ClientServerImpl implements ClientServer {
 
     @Autowired
@@ -21,6 +24,9 @@ public class ClientServerImpl implements ClientServer {
 
     @Override
     public List<commodity> getComByConId(List<Long> comId) {
+        if(comId.size()<1){
+            return new ArrayList<commodity>();
+        }
         return commodityM.getComByComId(comId);
     }
 }

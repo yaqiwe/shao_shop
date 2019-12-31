@@ -35,11 +35,39 @@ class commodityMapperTest extends DomainApplicationTests {
         commodity com=new commodity();
         com.setComPrice(new BigDecimal("50.25"));
         com.setComStock(200);
-        com.setComSrc("http://img1.imgtn.bdimg.com/it/u=2507101458,1756545577&fm=15&gp=0.jpg");
+        com.setComSrc("https://img.alicdn.com/top/i1/TB1bTtALNjaK1RjSZKzSutVwXXa.jpg");
+        String[] showSrcList={
+                "https://img.alicdn.com/imgextra/i2/2926218234/O1CN01LzEQhX2AhDlnctegz_!!2926218234.jpg",
+                "https://img.alicdn.com/imgextra/i1/2926218234/O1CN01GFwzil2AhDlncuf1U_!!2926218234.jpg",
+                "https://img.alicdn.com/imgextra/i4/2926218234/O1CN019dUoKq2AhDkduV3QQ_!!2926218234.jpg",
+        };
+        String[] detailsSrcList={
+                "https://img.alicdn.com/imgextra/i1/2926218234/O1CN01lTUgxN2AhDklXWT5m_!!2926218234.jpg",
+                "https://img.alicdn.com/imgextra/i1/2926218234/O1CN0156158g2AhDko34Clc_!!2926218234.jpg",
+                "https://img.alicdn.com/imgextra/i4/2926218234/O1CN01vZ1oWv2AhDklXVjNI_!!2926218234.jpg",
+                "https://img.alicdn.com/imgextra/i1/2926218234/O1CN01lTUgxN2AhDklXWT5m_!!2926218234.jpg",
+                "https://img.alicdn.com/imgextra/i2/2926218234/O1CN01qEpNFY2AhDkmGTpHA_!!2926218234.jpg",
+        };
+        String showSrc="";
+        for (int i = 0,j=showSrcList.length; i < j; i++) {
+            showSrc+=showSrcList[i];
+            if(i<j-1){
+                showSrc+="%#06#%";
+            }
+        }
+        String detailsSrc="";
+        for (int i = 0,j=detailsSrcList.length; i < j; i++) {
+            detailsSrc+=detailsSrcList[i];
+            if(i<j-1){
+                detailsSrc+="%#06#%";
+            }
+        }
         for (int i = 0; i < 100; i++) {
             com.setComId(generationIdUtil.getId());
             com.setComName("商品"+i);
             com.setComDescribe("商品描述"+i);
+            com.setShowSrc(showSrc);
+            com.setDetailsSrc(detailsSrc);
             int i1 = commodityM.insertCom(com);
             Assert.assertTrue(i1==1);
         }

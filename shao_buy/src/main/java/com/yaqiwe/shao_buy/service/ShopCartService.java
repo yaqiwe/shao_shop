@@ -2,6 +2,7 @@ package com.yaqiwe.shao_buy.service;
 
 import com.yaqiwe.domain.dto.CatrDto;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -26,4 +27,11 @@ public interface ShopCartService {
      * @return
      */
     public List<CatrDto> getComList(long cartId);
+
+    /**
+     * 删除购物车中的商品
+     * @param comId
+     * @param cartId
+     */
+    public void deleteCom(Long[] comId,@NotNull(message = "购物车Id不能为空") Long cartId);
 }

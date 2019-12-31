@@ -9,12 +9,22 @@ public class ComInfoVo {
 
     /*商品Id*/
     private long comId;
+
     /*商品名称*/
     private String comName;
+
     /*商品描述*/
     private String comDescribe;
+
     /*商品图片*/
     private String comSrc;
+
     /*商品单价*/
     private BigDecimal comPrice;
+
+    /*轮播图的图片*/
+    private String[] showSrc;
+
+    /*详情图片*/
+    private String[] detailsSrc;
 }

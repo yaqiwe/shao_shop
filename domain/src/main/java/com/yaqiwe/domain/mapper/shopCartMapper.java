@@ -2,10 +2,7 @@ package com.yaqiwe.domain.mapper;
 
 import com.yaqiwe.domain.dto.CatrDto;
 import com.yaqiwe.domain.mapper.mapperSql.shopCartMapperSql;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -20,8 +17,12 @@ public interface shopCartMapper {
 
     /*插入数据，如果数据存在则修改商品的数量*/
     @InsertProvider(type = shopCartMapperSql.class ,method = "InsertCart")
-    int insertCart(List<CatrDto> dto,long cartId) ;
+    int insertCart(List<CatrDto> dto,Long cartId) ;
 
     @Select("SELECT * FROM shop_cart WHERE cart_id = #{cartId}")
-    List<CatrDto> getCartCom(long cartId);
+    List<CatrDto> getCartCom(Long cartId);
+
+    /*删除购物车商品*/
+    @DeleteProvider(type = shopCartMapperSql.class ,method = "deleteCom")
+    int deleteComm(Long[] comId,Long cartId);
 }

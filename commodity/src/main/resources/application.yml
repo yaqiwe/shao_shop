@@ -14,6 +14,11 @@ spring:
     url: jdbc:mysql://localhost:3306/shao_shop?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
     password: 123456
+  rabbitmq:
+    host: 192.168.179.128
+    port: 5672
+    username: guest
+    password: guest
 mybatis:
   configuration:
     #\u5F00\u542F\u81EA\u52A8\u9A7C\u5CF0\u547D\u540D\u89C4\u5219\u6620\u5C04

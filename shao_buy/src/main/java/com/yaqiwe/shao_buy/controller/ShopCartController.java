@@ -1,12 +1,12 @@
 package com.yaqiwe.shao_buy.controller;
 
 import com.yaqiwe.domain.dto.CatrDto;
+import com.yaqiwe.domain.dto.RedisUserDto;
 import com.yaqiwe.domain.entity.commodity;
-import com.yaqiwe.shao_buy.dto.RedisUserDto;
+import com.yaqiwe.domain.handler.LogInHandler;
+import com.yaqiwe.domain.service.redisService;
 import com.yaqiwe.shao_buy.dto.ShopCartVo;
-import com.yaqiwe.shao_buy.handler.LogInHandler;
 import com.yaqiwe.shao_buy.service.ShopCartService;
-import com.yaqiwe.shao_buy.service.redisService;
 import com.yaqiwe.shao_buy.util.Resoult;
 import com.yaqiwe.shao_buy.util.ResoultUtil;
 import com.ysqiwe.commodity.feignClient.CommodityFeign;
@@ -17,11 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletMapping;
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -76,5 +72,13 @@ public class ShopCartController {
         }
 
         return ResoultUtil.success(comVo);
+    }
+
+    /*删除购物车中的商品*/
+    @PostMapping("/deleteCom")
+    public Resoult deleteCom(@RequestBody Long[] comId){
+        RedisUserDto userInfo = redisS.getUserInfo(LogInHandler.token);
+        shopCartS.deleteCom(comId,userInfo.getShopCartId());
+        return getShopList();
     }
 }

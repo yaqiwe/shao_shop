@@ -14,7 +14,7 @@ import java.util.List;
 @Slf4j
 public class shopCartMapperSql {
 
-    public String InsertCart(List<CatrDto> dto, long cartId) {
+    public String InsertCart(List<CatrDto> dto, Long cartId) {
         StringBuffer sql= new StringBuffer();
         sql.append("INSERT INTO ");
         sql.append("shop_cart ");
@@ -28,6 +28,24 @@ public class shopCartMapperSql {
             }
         }
         sql.append("ON DUPLICATE KEY UPDATE com_number=VALUES(com_number)");
+//        log.info("shopCartMapperSql SQL: {}",sql.toString());
+        return sql.toString();
+    }
+
+    public String deleteCom(Long[] comId,Long cartId){
+        StringBuffer sql= new StringBuffer();
+        sql.append("DELETE FROM ");
+        sql.append("shop_cart ");
+        sql.append("WHERE cart_id = ");
+        sql.append(cartId);
+        sql.append(" AND com_id IN ( ");
+        for (int i = 0,j=comId.length; i < j; i++) {
+            sql.append(comId[i]);
+            if(i<j-1){
+                sql.append(" , ");
+            }
+        }
+        sql.append(" )");
 //        log.info("shopCartMapperSql SQL: {}",sql.toString());
         return sql.toString();
     }

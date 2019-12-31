@@ -12,7 +12,7 @@ zuul:
 #      serviceId: shop_commodity
 #      sensitiveHeaders:
     shopCommodity: /commodity/**
-#    user: /user/**
+    user: /user/**
     shop_buy: /shopBuy/**
 #  ignored-patterns:
 #    - /shop_commodity/**
@@ -23,3 +23,13 @@ eureka:
 server:
   port: 8080
 #http://120.79.41.196:8761/eureka/
+#ribbon:
+#  ReadTimeout: 60000
+#  ConnectTimeout: 60000
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 60000

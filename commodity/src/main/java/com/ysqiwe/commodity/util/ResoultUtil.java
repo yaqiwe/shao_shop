@@ -8,6 +8,7 @@ import com.ysqiwe.commodity.enums.exceptionEnum;
  * @description：
  */
 public class ResoultUtil {
+
     //成功
     public static Resoult success(Object data){
         Resoult resoult=new Resoult();

@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.yaqiwe.domain.entity.commodity;
 import com.ysqiwe.commodity.CommodityApplicationTests;
 import com.ysqiwe.commodity.util.exceptioParsing;
+import com.ysqiwe.commodity.vo.ComInfoVo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -50,10 +51,10 @@ public class commodityServiceTest extends CommodityApplicationTests {
 
     @Test
     public void testGetComInfo(){
-        long id=404477633531875328L;
-        commodity comInfo = commodityS.getComInfo(id);
-        log.info("ComInfo : {}",comInfo);
-        Assert.assertNotNull(comInfo);
+        long id=408830134846623744L;
+        ComInfoVo vo = commodityS.getComInfo(id);
+        log.info("ComInfo : {}",vo);
+        Assert.assertNotNull(vo);
     }
 
 

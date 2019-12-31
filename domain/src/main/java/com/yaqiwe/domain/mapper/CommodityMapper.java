@@ -18,8 +18,8 @@ import java.util.List;
 public interface CommodityMapper {
 
     /*插入数据*/
-    @Insert("insert into commodity(com_id,com_name,com_describe,com_src,com_price,com_stock)" +
-            "values(#{comId},#{comName},#{comDescribe},#{comSrc},#{comPrice},#{comStock})")
+    @Insert("insert into commodity(com_id,com_name,com_describe,com_src,com_price,com_stock,show_src,details_src)" +
+            " values (#{comId},#{comName},#{comDescribe},#{comSrc},#{comPrice},#{comStock},#{showSrc},#{detailsSrc})")
     int insertCom(commodity com);
 
     @Select("SELECT * FROM commodity ORDER BY com_id DESC")

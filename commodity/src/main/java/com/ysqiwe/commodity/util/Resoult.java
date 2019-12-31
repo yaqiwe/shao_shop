@@ -9,6 +9,7 @@ import lombok.Data;
  */
 @Data
 public class Resoult <T> {
+
     /*状态码*/
     private Integer code;
     /*信息*/

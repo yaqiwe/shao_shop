@@ -42,4 +42,17 @@ class shopCartMapperTest extends DomainApplicationTests {
         List<CatrDto> cartCom = shopCartM.getCartCom(cartId);
         Assert.assertTrue(cartCom.size()!=0);
     }
+
+    @Test
+    void testDeleteCareCom(){
+        Long[] con_Id={
+                408855034961465344L,
+                408855036005847040L,
+                408855036026818560L,
+                408855036039401472L,
+        };
+        Long cartId=405220819019640832L;
+        int i = shopCartM.deleteComm(con_Id, cartId);
+        Assert.assertTrue(i==con_Id.length);
+    }
 }

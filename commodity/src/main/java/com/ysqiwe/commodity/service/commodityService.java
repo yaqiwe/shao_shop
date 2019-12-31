@@ -2,6 +2,7 @@ package com.ysqiwe.commodity.service;
 
 import com.github.pagehelper.Page;
 import com.yaqiwe.domain.entity.commodity;
+import com.ysqiwe.commodity.vo.ComInfoVo;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.Min;
@@ -30,5 +31,5 @@ public interface commodityService {
      * @param comId
      * @return
      */
-    commodity getComInfo(long comId);
+    ComInfoVo getComInfo(long comId);
 }

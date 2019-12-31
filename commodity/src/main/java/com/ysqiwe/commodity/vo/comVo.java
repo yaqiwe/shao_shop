@@ -12,11 +12,12 @@ import java.math.BigDecimal;
 @Data
 public class comVo {
     /*商品Id*/
-    private String comId;
+    private Long comId;
     /*商品名称*/
     private String comName;
     /*商品图片*/
     private String comSrc;
     /*商品单价*/
     private BigDecimal comPrice;
+
 }

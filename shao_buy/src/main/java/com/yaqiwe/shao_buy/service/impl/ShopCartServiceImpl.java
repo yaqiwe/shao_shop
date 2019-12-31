@@ -39,4 +39,12 @@ public class ShopCartServiceImpl implements ShopCartService {
         return shopCartM.getCartCom(cartId);
     }
 
+    @Override
+    public void deleteCom(Long[] comId, Long cartId) {
+        if(comId.length<1){
+            return;
+        }
+        shopCartM.deleteComm(comId,cartId);
+    }
+
 }
